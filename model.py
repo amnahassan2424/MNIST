@@ -110,4 +110,11 @@ def load_mnist_from_csv(train_csv, test_csv):
     val_loader = DataLoader(val_set, batch_size=64, shuffle=False)
     test_loader = DataLoader(test_data, batch_size=64, shuffle=False)
 
+    if __name__=="__main__":
+        train_loader, val_loader, test_loader = load_mnist_from_csv("/path/to/train_csv_file", "/path/to/test_csv_file")
+    
+    fc_object = TwoLayerNN()
+    fc_object.train_model(train_loader, val_loader)
+    fc_object.plot_metrics()
+    
     return train_loader, val_loader, test_loader
